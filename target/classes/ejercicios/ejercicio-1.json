@@ -1,0 +1,78 @@
+{
+  "id": 1,
+  "enunciado": "Ejercicio 1/10 · Biblioteca\n\nUna biblioteca barrial quiere comenzar a organizar la información de los libros que tiene disponibles para sus socios. Hasta ahora los datos se anotan manualmente, pero se decidió crear un pequeño programa en Java que permita representar cada libro como un objeto. De cada libro interesa conocer su título, el nombre del autor, el precio y la cantidad de ejemplares disponibles.\n\nCuando se incorpora un nuevo libro al sistema, todos estos datos deben quedar establecidos desde el momento en que se crea el objeto. La biblioteca también necesita poder consultar posteriormente cada uno de estos datos y modificar aquellos que puedan cambiar con el tiempo. Por ejemplo, el precio de un libro puede actualizarse y también puede cambiar la cantidad de ejemplares disponibles.\n\nAdemás, cada libro debe poder proporcionar una descripción de sí mismo para que el programa pueda mostrar en pantalla su información. Esa descripción debe incluir el título, el autor, el precio y la cantidad de ejemplares disponibles. La idea es que la responsabilidad de conocer y mostrar la información propia del libro quede dentro de la clase que representa al libro.\n\nPara probar el funcionamiento, el programa principal deberá crear al menos dos libros diferentes, inicializándolos con sus respectivos datos. Luego deberá mostrar la información de ambos libros, modificar el precio y la cantidad de ejemplares de uno de ellos y volver a mostrar su información para comprobar que los cambios se realizaron correctamente.",
+  "categorias": [
+    "CLASE",
+    "ATRIBUTO",
+    "MÉTODO",
+    "CONSTRUCTOR",
+    "OBJETO"
+  ],
+  "tarjetas": [
+    {
+      "texto": "Libro",
+      "tipoCorrecto": "CLASE",
+      "explicacion": "Libro representa la clase principal porque modela cada libro como un objeto del programa."
+    },
+    {
+      "texto": "titulo",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "El título es un dato que pertenece a cada libro, por lo tanto es un atributo."
+    },
+    {
+      "texto": "autor",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "El nombre del autor es información propia de cada libro y se representa como atributo."
+    },
+    {
+      "texto": "precio",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "El precio es un dato del libro que puede cambiar con el tiempo, por eso es un atributo."
+    },
+    {
+      "texto": "cantidadEjemplares",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "La cantidad de ejemplares disponibles es un dato del libro y se modela como atributo."
+    },
+    {
+      "texto": "Libro(titulo, autor, precio, cantidadEjemplares)",
+      "tipoCorrecto": "CONSTRUCTOR",
+      "explicacion": "El constructor establece todos los datos necesarios cuando se crea un nuevo objeto Libro."
+    },
+    {
+      "texto": "getTitulo()",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "getTitulo permite consultar el título del libro, por lo que es un método accesor."
+    },
+    {
+      "texto": "setPrecio(nuevoPrecio)",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "setPrecio permite modificar el precio del libro, por lo que es un método modificador."
+    },
+    {
+      "texto": "setCantidadEjemplares(cantidad)",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "Este método permite actualizar la cantidad de ejemplares disponibles."
+    },
+    {
+      "texto": "describir()",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "describir representa una acción del libro: proporcionar una descripción con sus datos."
+    },
+    {
+      "texto": "libroUno",
+      "tipoCorrecto": "OBJETO",
+      "explicacion": "libroUno representa una instancia concreta de la clase Libro."
+    },
+    {
+      "texto": "libroDos",
+      "tipoCorrecto": "OBJETO",
+      "explicacion": "libroDos representa otra instancia concreta de la clase Libro."
+    },
+    {
+      "texto": "main",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "main es el método desde el que se crean y prueban los objetos Libro."
+    }
+  ]
+}

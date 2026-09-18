@@ -1,0 +1,90 @@
+{
+  "id": 7,
+  "enunciado": "Una empresa de envíos necesita administrar los pedidos realizados por sus clientes. Cada pedido tiene un número identificador y una situación que puede ser PENDIENTE, EN_CAMINO, ENTREGADO o DEVUELTO. El sistema debe permitir crear pedidos, consultar su situación y mostrar un mensaje diferente según la situación actual del pedido.",
+  "categorias": [
+    "CLASE",
+    "ENUM",
+    "ATRIBUTO",
+    "MÉTODO",
+    "CONSTRUCTOR",
+    "OBJETO",
+    "RELACIÓN"
+  ],
+  "tarjetas": [
+    {
+      "texto": "Pedido",
+      "tipoCorrecto": "CLASE",
+      "explicacion": "Representa un pedido de la empresa de envíos."
+    },
+    {
+      "texto": "SituacionPedido",
+      "tipoCorrecto": "ENUM",
+      "explicacion": "Representa el conjunto cerrado de situaciones posibles de un pedido."
+    },
+    {
+      "texto": "PENDIENTE",
+      "tipoCorrecto": "ENUM",
+      "explicacion": "Representa una de las situaciones posibles de un pedido."
+    },
+    {
+      "texto": "EN_CAMINO",
+      "tipoCorrecto": "ENUM",
+      "explicacion": "Representa una de las situaciones posibles de un pedido."
+    },
+    {
+      "texto": "ENTREGADO",
+      "tipoCorrecto": "ENUM",
+      "explicacion": "Representa una de las situaciones posibles de un pedido."
+    },
+    {
+      "texto": "DEVUELTO",
+      "tipoCorrecto": "ENUM",
+      "explicacion": "Representa una de las situaciones posibles de un pedido."
+    },
+    {
+      "texto": "numero",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "Representa el número identificador del pedido."
+    },
+    {
+      "texto": "situacion",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "Representa la situación actual del pedido."
+    },
+    {
+      "texto": "mostrarSituacion()",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "Permite mostrar un mensaje según la situación actual del pedido."
+    },
+    {
+      "texto": "cambiarSituacion()",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "Permite modificar la situación del pedido."
+    },
+    {
+      "texto": "constructor de Pedido",
+      "tipoCorrecto": "CONSTRUCTOR",
+      "explicacion": "Permite crear un pedido inicializando su número y situación."
+    },
+    {
+      "texto": "pedidoUno",
+      "tipoCorrecto": "OBJETO",
+      "explicacion": "Es una instancia concreta de la clase Pedido."
+    },
+    {
+      "texto": "pedidoDos",
+      "tipoCorrecto": "OBJETO",
+      "explicacion": "Es otra instancia concreta de la clase Pedido."
+    },
+    {
+      "texto": "Pedido utiliza SituacionPedido",
+      "tipoCorrecto": "RELACIÓN",
+      "explicacion": "La clase Pedido utiliza el enum SituacionPedido para representar su situación."
+    },
+    {
+      "texto": "switch sobre situacion",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "Permite ejecutar una acción diferente según el valor de la situación del pedido."
+    }
+  ]
+}
