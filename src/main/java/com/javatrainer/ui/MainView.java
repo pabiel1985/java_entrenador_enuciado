@@ -15,12 +15,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TitledPane;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
@@ -107,21 +107,32 @@ public class MainView extends BorderPane {
         contadorEjercicio.getStyleClass().add("contador-ejercicio");
         temporizador.setMinWidth(130);
         temporizador.setAlignment(Pos.CENTER_RIGHT);
-        return new VBox(8, new javafx.scene.layout.HBox(15, contadorEjercicio, temporizador, abandonar));
+        HBox fila = new HBox(15, contadorEjercicio, temporizador, abandonar);
+        fila.setAlignment(Pos.CENTER_LEFT);
+        return new VBox(8, fila);
     }
 
-    private TitledPane crearEnunciado() {
+    private VBox crearEnunciado() {
+        Label tituloPanel = new Label("ENUNCIADO");
+        tituloPanel.getStyleClass().add("panel-titulo");
+
         Label texto = new Label(ejercicio.getEnunciado());
         texto.setWrapText(true);
         texto.setMaxWidth(Double.MAX_VALUE);
+        texto.setMinHeight(100);
+        texto.setPrefHeight(120);
         texto.getStyleClass().add("enunciado");
-        return new TitledPane("ENUNCIADO", texto);
+
+        VBox panel = new VBox(6, tituloPanel, texto);
+        panel.getStyleClass().add("panel-enunciado");
+        return panel;
     }
 
     private VBox crearTarjetasDisponibles() {
         VBox caja = new VBox(8);
         Label titulo = new Label("TARJETAS DISPONIBLES (arrastra cada tarjeta a una categoría)");
         titulo.setWrapText(true);
+
         FlowPane tarjetas = new FlowPane(10, 10);
         tarjetas.setId("tarjetasDisponibles");
         tarjetas.setPrefWrapLength(1000);
