@@ -7,7 +7,7 @@
     "MÉTODO",
     "CONSTRUCTOR",
     "OBJETO",
-    "COMPOSICIÓN"
+    "RELACIÓN / ASOCIACIÓN"
   ],
   "tarjetas": [
     {
@@ -62,13 +62,13 @@
     },
     {
       "texto": "propietario",
-      "tipoCorrecto": "COMPOSICIÓN",
-      "explicacion": "Vehiculo mantiene una referencia a un objeto Propietario. Así se evita repetir nombre y teléfono dentro de cada vehículo."
+      "tipoCorrecto": "RELACIÓN / ASOCIACIÓN",
+      "explicacion": "Vehiculo tiene una referencia a un Propietario como atributo. El mismo propietario puede estar asociado a varios vehículos y puede existir independientemente del vehículo."
     },
     {
       "texto": "Vehiculo(patente, marca, modelo, anioFabricacion, propietario)",
       "tipoCorrecto": "CONSTRUCTOR",
-      "explicacion": "El constructor recibe los datos iniciales del vehículo y el propietario asociado."
+      "explicacion": "El constructor recibe los datos iniciales del vehículo y la referencia al propietario asociado."
     },
     {
       "texto": "Propietario(nombre, telefono)",
