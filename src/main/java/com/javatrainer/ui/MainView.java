@@ -74,10 +74,13 @@ public class MainView extends BorderPane {
         BorderPane.setMargin(titulo, new Insets(18));
 
         contenido.setPadding(new Insets(20));
+        contenido.setFillWidth(true);
         reconstruirContenido();
+
         ScrollPane scroll = new ScrollPane(contenido);
         scroll.setFitToWidth(true);
-        scroll.setFitToHeight(true);
+        scroll.setFitToHeight(false);
+        scroll.setPannable(true);
         setCenter(scroll);
     }
 
@@ -119,11 +122,14 @@ public class MainView extends BorderPane {
         Label texto = new Label(ejercicio.getEnunciado());
         texto.setWrapText(true);
         texto.setMaxWidth(Double.MAX_VALUE);
-        texto.setMinHeight(100);
-        texto.setPrefHeight(120);
+        texto.setMinWidth(0);
+        // No se fija la altura: el Label crece según la cantidad real de texto.
+        texto.setMinHeight(Region.USE_PREF_SIZE);
+        texto.setPrefHeight(Region.USE_COMPUTED_SIZE);
         texto.getStyleClass().add("enunciado");
 
         VBox panel = new VBox(6, tituloPanel, texto);
+        panel.setFillWidth(true);
         panel.getStyleClass().add("panel-enunciado");
         return panel;
     }

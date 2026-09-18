@@ -5,7 +5,7 @@
 .temporizador-alerta { -fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #b3261e; }
 .panel-enunciado { -fx-background-color: #f2f5f5; -fx-border-color: #99a8b1; -fx-border-width: 1px; -fx-padding: 8px 10px 10px 10px; }
 .panel-titulo { -fx-font-size: 15px; -fx-font-weight: bold; -fx-text-fill: #173f5f; }
-.enunciado { -fx-padding: 8px 8px 10px 8px; -fx-wrap-text: true; -fx-max-width: 1000px; -fx-min-height: 110px; -fx-background-color: white; }
+.enunciado { -fx-padding: 8px; -fx-wrap-text: true; -fx-background-color: white; -fx-font-size: 17px; }
 .tarjeta { -fx-background-color: #f6bd60; -fx-padding: 10px 14px; -fx-background-radius: 8px; -fx-font-weight: bold; -fx-wrap-text: true; }
 .tarjeta:hover { -fx-background-color: #f28482; }
 .columna { -fx-border-color: #8aa6a3; -fx-border-width: 1px; -fx-padding: 8px; -fx-background-color: #f4f7f6; }
