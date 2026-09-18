@@ -25,15 +25,9 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-/** Pantalla de práctica del primer ejercicio. */
+/** Pantalla de práctica: las zonas se crean según las categorías del ejercicio. */
 public class MainView extends BorderPane {
     private static final int COLUMNA_ANCHO = 240;
-    private static final String[] CATEGORIAS = {
-            "CLASE", "CLASE PADRE", "CLASE HIJA", "INTERFACE",
-            "ATRIBUTO", "CONSTANTE", "VARIABLE", "MÉTODO",
-            "CONSTRUCTOR", "OBJETO", "PRIVATE", "PUBLIC",
-            "PROTECTED", "EXTENDS", "IMPLEMENTS"
-    };
 
     private final Map<String, String> respuestas = new HashMap<>();
     private final VBox resultadoBox = new VBox(6);
@@ -90,8 +84,6 @@ public class MainView extends BorderPane {
         FlowPane tarjetas = new FlowPane(10, 10);
         tarjetas.setId("tarjetasDisponibles");
         tarjetas.setPrefWrapLength(1000);
-        tarjetas.setHgap(10);
-        tarjetas.setVgap(10);
         tarjetas.setOnDragOver(event -> {
             if (event.getGestureSource() instanceof Label) {
                 event.acceptTransferModes(TransferMode.MOVE);
@@ -138,7 +130,8 @@ public class MainView extends BorderPane {
         FlowPane contenedor = new FlowPane(12, 12);
         contenedor.setPrefWrapLength(1000);
 
-        for (String categoria : CATEGORIAS) {
+        // Las categorías son parte de la configuración pedagógica del JSON.
+        for (String categoria : ejercicio.getCategorias()) {
             FlowPane zona = new FlowPane(8, 8);
             zona.getStyleClass().add("zona");
             zona.setPrefWrapLength(COLUMNA_ANCHO);
@@ -184,10 +177,7 @@ public class MainView extends BorderPane {
 
     private VBox crearControles() {
         Button comprobar = new Button("COMPROBAR");
-        comprobar.setOnAction(event -> {
-            Resultado resultado = new EvaluacionService().evaluar(ejercicio, respuestas);
-            mostrarResultado(resultado);
-        });
+        comprobar.setOnAction(event -> mostrarResultado(new EvaluacionService().evaluar(ejercicio, respuestas)));
 
         resultadoBox.getStyleClass().add("resultado");
         resultadoBox.setVisible(false);
@@ -202,18 +192,15 @@ public class MainView extends BorderPane {
         resultadoBox.getChildren().add(porcentaje);
 
         for (ResultadoTarjeta detalle : resultado.detalles()) {
-            String respuesta = detalle.getRespuestaUsuario() == null
-                    ? "sin colocar"
-                    : detalle.getRespuestaUsuario();
+            String respuesta = detalle.getRespuestaUsuario() == null ? "sin colocar" : detalle.getRespuestaUsuario();
             Label linea = new Label((detalle.isCorrecta() ? "✓ " : "✗ ")
                     + detalle.getTarjeta().getTexto() + " → " + respuesta);
             linea.setWrapText(true);
             resultadoBox.getChildren().add(linea);
 
             if (!detalle.isCorrecta()) {
-                Label explicacion = new Label("  Esperada: "
-                        + detalle.getTarjeta().getTipoCorrecto() + ". "
-                        + detalle.getTarjeta().getExplicacion());
+                Label explicacion = new Label("  Esperada: " + detalle.getTarjeta().getTipoCorrecto()
+                        + ". " + detalle.getTarjeta().getExplicacion());
                 explicacion.setWrapText(true);
                 resultadoBox.getChildren().add(explicacion);
             }

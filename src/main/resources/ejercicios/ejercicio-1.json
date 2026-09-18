@@ -1,6 +1,13 @@
 {
   "id": 1,
   "enunciado": "Ejercicio 1/10 · Biblioteca\n\nUna biblioteca barrial quiere comenzar a organizar la información de los libros que tiene disponibles para sus socios. Hasta ahora los datos se anotan manualmente, pero se decidió crear un pequeño programa en Java que permita representar cada libro como un objeto. De cada libro interesa conocer su título, el nombre del autor, el precio y la cantidad de ejemplares disponibles.\n\nCuando se incorpora un nuevo libro al sistema, todos estos datos deben quedar establecidos desde el momento en que se crea el objeto. La biblioteca también necesita poder consultar posteriormente cada uno de estos datos y modificar aquellos que puedan cambiar con el tiempo. Por ejemplo, el precio de un libro puede actualizarse y también puede cambiar la cantidad de ejemplares disponibles.\n\nAdemás, cada libro debe poder proporcionar una descripción de sí mismo para que el programa pueda mostrar en pantalla su información. Esa descripción debe incluir el título, el autor, el precio y la cantidad de ejemplares disponibles. La idea es que la responsabilidad de conocer y mostrar la información propia del libro quede dentro de la clase que representa al libro.\n\nPara probar el funcionamiento, el programa principal deberá crear al menos dos libros diferentes, inicializándolos con sus respectivos datos. Luego deberá mostrar la información de ambos libros, modificar el precio y la cantidad de ejemplares de uno de ellos y volver a mostrar su información para comprobar que los cambios se realizaron correctamente.",
+  "categorias": [
+    "CLASE",
+    "ATRIBUTO",
+    "MÉTODO",
+    "CONSTRUCTOR",
+    "OBJETO"
+  ],
   "tarjetas": [
     {
       "texto": "Libro",
