@@ -8,21 +8,33 @@ import com.javatrainer.service.EvaluacionService;
 import com.javatrainer.service.JsonService;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TitledPane;
 import javafx.scene.input.ClipboardContent;
 import javafx.scene.input.Dragboard;
 import javafx.scene.input.TransferMode;
-import javafx.scene.layout.*;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.FlowPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
+/** Pantalla de práctica del primer ejercicio. */
 public class MainView extends BorderPane {
-    private static final String[] CATEGORIAS = {"CLASE", "ATRIBUTO", "MÉTODO"};
+    private static final String[] CATEGORIAS = {
+            "CLASE", "CLASE PADRE", "CLASE HIJA", "INTERFACE",
+            "ATRIBUTO", "CONSTANTE", "VARIABLE", "MÉTODO",
+            "CONSTRUCTOR", "OBJETO", "PRIVATE", "PUBLIC",
+            "PROTECTED", "EXTENDS", "IMPLEMENTS"
+    };
+
     private final Map<String, String> respuestas = new HashMap<>();
-    private final Map<String, FlowPane> zonas = new HashMap<>();
     private final VBox resultadoBox = new VBox(6);
     private Ejercicio ejercicio;
 
@@ -48,8 +60,16 @@ public class MainView extends BorderPane {
 
         VBox contenido = new VBox(18);
         contenido.setPadding(new Insets(20));
-        contenido.getChildren().addAll(crearEnunciado(), crearTarjetasDisponibles(), crearZonas(), crearControles());
-        setCenter(new ScrollPane(contenido));
+        contenido.getChildren().addAll(
+                crearEnunciado(),
+                crearTarjetasDisponibles(),
+                crearZonas(),
+                crearControles()
+        );
+
+        ScrollPane scroll = new ScrollPane(contenido);
+        scroll.setFitToWidth(true);
+        setCenter(scroll);
     }
 
     private TitledPane crearEnunciado() {
@@ -64,7 +84,27 @@ public class MainView extends BorderPane {
         Label titulo = new Label("TARJETAS DISPONIBLES (arrastra cada tarjeta a una categoría)");
         FlowPane tarjetas = new FlowPane(10, 10);
         tarjetas.setId("tarjetasDisponibles");
-        for (Tarjeta tarjeta : ejercicio.getTarjetas()) tarjetas.getChildren().add(crearTarjeta(tarjeta));
+        tarjetas.setOnDragOver(event -> {
+            if (event.getGestureSource() instanceof Label) {
+                event.acceptTransferModes(TransferMode.MOVE);
+            }
+            event.consume();
+        });
+        tarjetas.setOnDragDropped(event -> {
+            if (event.getGestureSource() instanceof Label etiqueta) {
+                if (etiqueta.getParent() instanceof Pane anterior) {
+                    anterior.getChildren().remove(etiqueta);
+                }
+                tarjetas.getChildren().add(etiqueta);
+                respuestas.remove(((Tarjeta) etiqueta.getUserData()).getTexto());
+                event.setDropCompleted(true);
+            }
+            event.consume();
+        });
+
+        for (Tarjeta tarjeta : ejercicio.getTarjetas()) {
+            tarjetas.getChildren().add(crearTarjeta(tarjeta));
+        }
         caja.getChildren().addAll(titulo, tarjetas);
         return caja;
     }
@@ -72,6 +112,7 @@ public class MainView extends BorderPane {
     private Label crearTarjeta(Tarjeta tarjeta) {
         Label etiqueta = new Label(tarjeta.getTexto());
         etiqueta.getStyleClass().add("tarjeta");
+        etiqueta.setWrapText(true);
         etiqueta.setUserData(tarjeta);
         etiqueta.setOnDragDetected(event -> {
             Dragboard dragboard = etiqueta.startDragAndDrop(TransferMode.MOVE);
@@ -83,14 +124,19 @@ public class MainView extends BorderPane {
         return etiqueta;
     }
 
-    private HBox crearZonas() {
-        HBox contenedor = new HBox(15);
+    private FlowPane crearZonas() {
+        FlowPane contenedor = new FlowPane(12, 12);
+        contenedor.setPrefWrapLength(1050);
+
         for (String categoria : CATEGORIAS) {
             FlowPane zona = new FlowPane(8, 8);
             zona.getStyleClass().add("zona");
-            zona.setPrefHeight(110);
+            zona.setPrefWrapLength(230);
+            zona.setPrefHeight(100);
             zona.setOnDragOver(event -> {
-                if (event.getGestureSource() instanceof Label) event.acceptTransferModes(TransferMode.MOVE);
+                if (event.getGestureSource() instanceof Label) {
+                    event.acceptTransferModes(TransferMode.MOVE);
+                }
                 event.consume();
             });
             zona.setOnDragDropped(event -> {
@@ -100,26 +146,36 @@ public class MainView extends BorderPane {
                 }
                 event.consume();
             });
-            VBox columna = new VBox(6, new Label(categoria), zona);
+
+            Label nombre = new Label(categoria);
+            nombre.getStyleClass().add("categoria");
+            VBox columna = new VBox(6, nombre, zona);
             columna.getStyleClass().add("columna");
-            HBox.setHgrow(columna, Priority.ALWAYS);
-            zonas.put(categoria, zona);
+            columna.setPrefWidth(250);
+            columna.setMinHeight(140);
             contenedor.getChildren().add(columna);
         }
         return contenedor;
     }
 
     private void moverTarjeta(Label tarjeta, FlowPane destino, String categoria) {
-        if (tarjeta.getParent() instanceof Pane anterior) anterior.getChildren().remove(tarjeta);
+        if (tarjeta.getParent() instanceof Pane anterior) {
+            anterior.getChildren().remove(tarjeta);
+        }
         destino.getChildren().add(tarjeta);
         respuestas.put(((Tarjeta) tarjeta.getUserData()).getTexto(), categoria);
     }
 
     private VBox crearControles() {
         Button comprobar = new Button("COMPROBAR");
-        comprobar.setOnAction(event -> mostrarResultado(new EvaluacionService().evaluar(ejercicio, respuestas)));
+        comprobar.setOnAction(event -> {
+            Resultado resultado = new EvaluacionService().evaluar(ejercicio, respuestas);
+            mostrarResultado(resultado);
+        });
+
         resultadoBox.getStyleClass().add("resultado");
         resultadoBox.setVisible(false);
+        resultadoBox.setManaged(false);
         return new VBox(12, comprobar, resultadoBox);
     }
 
@@ -128,16 +184,26 @@ public class MainView extends BorderPane {
         Label porcentaje = new Label("RESULTADO: " + resultado.porcentaje() + " %");
         porcentaje.getStyleClass().add("porcentaje");
         resultadoBox.getChildren().add(porcentaje);
+
         for (ResultadoTarjeta detalle : resultado.detalles()) {
-            String respuesta = detalle.getRespuestaUsuario() == null ? "sin colocar" : detalle.getRespuestaUsuario();
-            Label linea = new Label((detalle.isCorrecta() ? "✓ " : "✗ ") + detalle.getTarjeta().getTexto()
-                    + " → " + respuesta);
+            String respuesta = detalle.getRespuestaUsuario() == null
+                    ? "sin colocar"
+                    : detalle.getRespuestaUsuario();
+            Label linea = new Label((detalle.isCorrecta() ? "✓ " : "✗ ")
+                    + detalle.getTarjeta().getTexto() + " → " + respuesta);
+            linea.setWrapText(true);
             resultadoBox.getChildren().add(linea);
+
             if (!detalle.isCorrecta()) {
-                resultadoBox.getChildren().add(new Label("  Esperada: " + detalle.getTarjeta().getTipoCorrecto()
-                        + ". " + detalle.getTarjeta().getExplicacion()));
+                Label explicacion = new Label("  Esperada: "
+                        + detalle.getTarjeta().getTipoCorrecto() + ". "
+                        + detalle.getTarjeta().getExplicacion());
+                explicacion.setWrapText(true);
+                resultadoBox.getChildren().add(explicacion);
             }
         }
+
+        resultadoBox.setManaged(true);
         resultadoBox.setVisible(true);
     }
 }
