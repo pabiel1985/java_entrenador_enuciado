@@ -1,0 +1,12 @@
+{
+  "id": 1,
+  "enunciado": "Una Persona tiene nombre y DNI. Un Empleado hereda de Persona y dispone de un sueldo. El método mostrarDatos presenta la información del empleado.",
+  "tarjetas": [
+    {"texto": "Empleado", "tipoCorrecto": "CLASE", "explicacion": "Empleado representa una clase porque define un tipo de objeto."},
+    {"texto": "nombre", "tipoCorrecto": "ATRIBUTO", "explicacion": "nombre representa un dato almacenado en la persona."},
+    {"texto": "DNI", "tipoCorrecto": "ATRIBUTO", "explicacion": "DNI representa un dato de la persona, por eso es un atributo."},
+    {"texto": "sueldo", "tipoCorrecto": "ATRIBUTO", "explicacion": "sueldo es un dato propio del empleado."},
+    {"texto": "mostrarDatos", "tipoCorrecto": "MÉTODO", "explicacion": "mostrarDatos representa una acción que puede realizar el objeto."},
+    {"texto": "Persona", "tipoCorrecto": "CLASE", "explicacion": "Persona representa otra clase del modelo."}
+  ]
+}
