@@ -1,0 +1,96 @@
+{
+  "id": 5,
+  "enunciado": "Una aplicación debe permitir trabajar con figuras geométricas. Se desea representar una figura general y luego trabajar específicamente con círculos y rectángulos. La figura general debe definir una operación para calcular su superficie, pero cada tipo de figura debe realizar ese cálculo de manera particular. Se deben crear objetos de círculo y rectángulo y mostrar sus superficies.",
+  "categorias": [
+    "CLASE",
+    "CLASE ABSTRACTA",
+    "CLASE HIJA",
+    "ATRIBUTO",
+    "MÉTODO",
+    "CONSTRUCTOR",
+    "OBJETO",
+    "RELACIÓN"
+  ],
+  "tarjetas": [
+    {
+      "texto": "Figura",
+      "tipoCorrecto": "CLASE ABSTRACTA",
+      "explicacion": "Representa la figura general y sirve como base para los distintos tipos de figuras."
+    },
+    {
+      "texto": "Circulo",
+      "tipoCorrecto": "CLASE HIJA",
+      "explicacion": "Representa específicamente una figura de tipo círculo."
+    },
+    {
+      "texto": "Rectangulo",
+      "tipoCorrecto": "CLASE HIJA",
+      "explicacion": "Representa específicamente una figura de tipo rectángulo."
+    },
+    {
+      "texto": "radio",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "Representa el radio propio de un círculo."
+    },
+    {
+      "texto": "base",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "Representa la base propia de un rectángulo."
+    },
+    {
+      "texto": "altura",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "Representa la altura propia de un rectángulo."
+    },
+    {
+      "texto": "calcularSuperficie()",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "Define la operación que permite obtener la superficie de una figura."
+    },
+    {
+      "texto": "constructor de Circulo",
+      "tipoCorrecto": "CONSTRUCTOR",
+      "explicacion": "Permite crear un círculo inicializando su radio."
+    },
+    {
+      "texto": "constructor de Rectangulo",
+      "tipoCorrecto": "CONSTRUCTOR",
+      "explicacion": "Permite crear un rectángulo inicializando su base y altura."
+    },
+    {
+      "texto": "circuloUno",
+      "tipoCorrecto": "OBJETO",
+      "explicacion": "Es una instancia concreta de la clase Circulo."
+    },
+    {
+      "texto": "rectanguloUno",
+      "tipoCorrecto": "OBJETO",
+      "explicacion": "Es una instancia concreta de la clase Rectangulo."
+    },
+    {
+      "texto": "Circulo extends Figura",
+      "tipoCorrecto": "RELACIÓN",
+      "explicacion": "Circulo hereda de Figura porque es un tipo de Figura."
+    },
+    {
+      "texto": "Rectangulo extends Figura",
+      "tipoCorrecto": "RELACIÓN",
+      "explicacion": "Rectangulo hereda de Figura porque es un tipo de Figura."
+    },
+    {
+      "texto": "calcularSuperficie() en Circulo",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "El círculo debe implementar el cálculo de su superficie según su propia fórmula."
+    },
+    {
+      "texto": "calcularSuperficie() en Rectangulo",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "El rectángulo debe implementar el cálculo de su superficie según su propia fórmula."
+    },
+    {
+      "texto": "mostrar las superficies desde main",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "El programa principal crea los objetos y utiliza sus métodos para mostrar los resultados."
+    }
+  ]
+}

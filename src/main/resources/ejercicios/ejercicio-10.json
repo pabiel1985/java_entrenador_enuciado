@@ -1,0 +1,169 @@
+{
+  "id": 10,
+  "enunciado": "Una empresa de entregas necesita administrar diferentes tipos de pedidos. Cada pedido tiene un identificador, un destinatario y una situación. Existen distintos tipos de pedidos que comparten información y comportamiento, pero cada tipo puede tener características propias. Algunos pedidos requieren una cobertura especial y deben indicar si cumplen las condiciones de cobertura. La situación del pedido puede ser PENDIENTE, EN_CAMINO, ENTREGADO o DEVUELTO. Los pedidos deben poder compararse por un criterio determinado y mostrarse mediante una representación textual. El sistema debe asignar automáticamente un identificador único a cada pedido. Se debe crear una clase encargada de administrar los pedidos utilizando una lista y permitir agregar pedidos, buscar pedidos y obtener información de ellos.",
+  "categorias": [
+    "CLASE",
+    "CLASE PADRE",
+    "CLASE HIJA",
+    "CLASE ABSTRACTA",
+    "INTERFAZ",
+    "ENUM",
+    "ATRIBUTO",
+    "MÉTODO",
+    "CONSTRUCTOR",
+    "OBJETO",
+    "RELACIÓN"
+  ],
+  "tarjetas": [
+    {
+      "texto": "Pedido",
+      "tipoCorrecto": "CLASE ABSTRACTA",
+      "explicacion": "Representa el concepto general de pedido y contiene la información y comportamiento común a los distintos tipos de pedidos."
+    },
+    {
+      "texto": "PedidoEstandar",
+      "tipoCorrecto": "CLASE HIJA",
+      "explicacion": "Representa un tipo concreto de pedido que hereda las características comunes de Pedido."
+    },
+    {
+      "texto": "PedidoEspecial",
+      "tipoCorrecto": "CLASE HIJA",
+      "explicacion": "Representa otro tipo concreto de pedido que hereda las características comunes de Pedido."
+    },
+    {
+      "texto": "Cubierto",
+      "tipoCorrecto": "INTERFAZ",
+      "explicacion": "Define el contrato que deben cumplir los pedidos que poseen una cobertura especial."
+    },
+    {
+      "texto": "SituacionPedido",
+      "tipoCorrecto": "ENUM",
+      "explicacion": "Representa el conjunto cerrado de situaciones posibles de un pedido."
+    },
+    {
+      "texto": "id",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "Identifica de manera única a cada pedido."
+    },
+    {
+      "texto": "destinatario",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "Representa a quién está destinado el pedido."
+    },
+    {
+      "texto": "situacion",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "Representa la situación actual del pedido."
+    },
+    {
+      "texto": "proximoId",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "Permite mantener el próximo identificador disponible para asignar automáticamente a los pedidos."
+    },
+    {
+      "texto": "pedidos",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "Representa la lista de pedidos administrada por el gestor."
+    },
+    {
+      "texto": "agregarPedido()",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "Permite incorporar un pedido a la lista administrada por el sistema."
+    },
+    {
+      "texto": "buscarPorId()",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "Permite localizar un pedido utilizando su identificador."
+    },
+    {
+      "texto": "filtrarPorSituacion()",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "Permite obtener pedidos que tienen una determinada situación."
+    },
+    {
+      "texto": "calcularTotal()",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "Permite obtener información total a partir de los pedidos administrados."
+    },
+    {
+      "texto": "estaCubierto()",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "Permite indicar si un pedido cumple las condiciones definidas para la cobertura."
+    },
+    {
+      "texto": "compareTo()",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "Permite establecer el criterio mediante el cual se comparan pedidos."
+    },
+    {
+      "texto": "equals(Object obj)",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "Permite determinar cuándo dos pedidos representan el mismo pedido."
+    },
+    {
+      "texto": "hashCode()",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "Debe ser coherente con equals para mantener correctamente el contrato de igualdad de los objetos."
+    },
+    {
+      "texto": "toString()",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "Permite obtener una representación textual del pedido."
+    },
+    {
+      "texto": "constructor de Pedido",
+      "tipoCorrecto": "CONSTRUCTOR",
+      "explicacion": "Inicializa la información común de un pedido y participa en la asignación automática de su identificador."
+    },
+    {
+      "texto": "constructor de PedidoEstandar",
+      "tipoCorrecto": "CONSTRUCTOR",
+      "explicacion": "Permite crear un pedido estándar inicializando sus datos propios y heredados."
+    },
+    {
+      "texto": "constructor de PedidoEspecial",
+      "tipoCorrecto": "CONSTRUCTOR",
+      "explicacion": "Permite crear un pedido especial inicializando sus datos propios y heredados."
+    },
+    {
+      "texto": "pedidoUno",
+      "tipoCorrecto": "OBJETO",
+      "explicacion": "Es una instancia concreta de un tipo de pedido."
+    },
+    {
+      "texto": "pedidoDos",
+      "tipoCorrecto": "OBJETO",
+      "explicacion": "Es otra instancia concreta de un tipo de pedido."
+    },
+    {
+      "texto": "PedidoEstandar extends Pedido",
+      "tipoCorrecto": "RELACIÓN",
+      "explicacion": "PedidoEstandar hereda de Pedido porque es un tipo de Pedido."
+    },
+    {
+      "texto": "PedidoEspecial extends Pedido",
+      "tipoCorrecto": "RELACIÓN",
+      "explicacion": "PedidoEspecial hereda de Pedido porque es un tipo de Pedido."
+    },
+    {
+      "texto": "PedidoEspecial implements Cubierto",
+      "tipoCorrecto": "RELACIÓN",
+      "explicacion": "PedidoEspecial implementa el contrato definido por la interfaz Cubierto."
+    },
+    {
+      "texto": "GestorPedidos tiene una lista de Pedido",
+      "tipoCorrecto": "RELACIÓN",
+      "explicacion": "El gestor mantiene una colección de pedidos para poder administrarlos."
+    },
+    {
+      "texto": "switch sobre situacion",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "Permite ejecutar una acción diferente según la situación del pedido."
+    },
+    {
+      "texto": "main",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "Permite crear objetos, agregarlos al gestor y probar el funcionamiento del sistema."
+    }
+  ]
+}

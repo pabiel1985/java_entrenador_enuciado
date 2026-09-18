@@ -1,0 +1,102 @@
+{
+  "id": 6,
+  "enunciado": "Una veterinaria necesita representar animales que pueden ser atendidos en el establecimiento. Se desea tener un tipo general de Animal y luego representar específicamente perros y gatos. Cada animal debe tener sus propios datos y poder realizar una acción de jugar. La forma en que cada animal juega puede ser diferente según el tipo de animal.",
+  "categorias": [
+    "CLASE",
+    "CLASE PADRE",
+    "CLASE HIJA",
+    "INTERFAZ",
+    "ATRIBUTO",
+    "MÉTODO",
+    "CONSTRUCTOR",
+    "OBJETO",
+    "RELACIÓN"
+  ],
+  "tarjetas": [
+    {
+      "texto": "Animal",
+      "tipoCorrecto": "CLASE PADRE",
+      "explicacion": "Representa el tipo general de los animales."
+    },
+    {
+      "texto": "Perro",
+      "tipoCorrecto": "CLASE HIJA",
+      "explicacion": "Representa específicamente a un perro."
+    },
+    {
+      "texto": "Gato",
+      "tipoCorrecto": "CLASE HIJA",
+      "explicacion": "Representa específicamente a un gato."
+    },
+    {
+      "texto": "Jugable",
+      "tipoCorrecto": "INTERFAZ",
+      "explicacion": "Define el contrato relacionado con la acción de jugar."
+    },
+    {
+      "texto": "nombre",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "Representa el nombre del animal."
+    },
+    {
+      "texto": "edad",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "Representa la edad del animal."
+    },
+    {
+      "texto": "jugar()",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "Representa la acción que puede realizar un animal."
+    },
+    {
+      "texto": "hacerSonido()",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "Permite representar el comportamiento particular de cada tipo de animal."
+    },
+    {
+      "texto": "constructor de Animal",
+      "tipoCorrecto": "CONSTRUCTOR",
+      "explicacion": "Permite inicializar los datos comunes de un animal."
+    },
+    {
+      "texto": "constructor de Perro",
+      "tipoCorrecto": "CONSTRUCTOR",
+      "explicacion": "Permite crear un perro inicializando sus datos."
+    },
+    {
+      "texto": "constructor de Gato",
+      "tipoCorrecto": "CONSTRUCTOR",
+      "explicacion": "Permite crear un gato inicializando sus datos."
+    },
+    {
+      "texto": "perroUno",
+      "tipoCorrecto": "OBJETO",
+      "explicacion": "Es una instancia concreta de la clase Perro."
+    },
+    {
+      "texto": "gatoUno",
+      "tipoCorrecto": "OBJETO",
+      "explicacion": "Es una instancia concreta de la clase Gato."
+    },
+    {
+      "texto": "Perro extends Animal",
+      "tipoCorrecto": "RELACIÓN",
+      "explicacion": "Perro hereda de Animal porque es un tipo de Animal."
+    },
+    {
+      "texto": "Gato extends Animal",
+      "tipoCorrecto": "RELACIÓN",
+      "explicacion": "Gato hereda de Animal porque es un tipo de Animal."
+    },
+    {
+      "texto": "Perro implements Jugable",
+      "tipoCorrecto": "RELACIÓN",
+      "explicacion": "Perro implementa el contrato definido por la interfaz Jugable."
+    },
+    {
+      "texto": "Gato implements Jugable",
+      "tipoCorrecto": "RELACIÓN",
+      "explicacion": "Gato implementa el contrato definido por la interfaz Jugable."
+    }
+  ]
+}

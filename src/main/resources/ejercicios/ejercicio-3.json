@@ -1,0 +1,119 @@
+{
+  "id": 3,
+  "enunciado": "Ejercicio 3/10 · Academia de cursos\n\nUna academia de programación organiza distintos cursos durante el año. De cada curso se necesita conocer su nombre, duración en horas y precio.\n\nLa academia también registra a los alumnos que participan en cada curso. De cada alumno se conoce su nombre y número de legajo.\n\nUn alumno puede participar en más de un curso y un curso puede tener varios alumnos. El sistema debe representar esta relación sin repetir los datos de un alumno cada vez que se lo asocia a un curso.\n\nPara cada curso se debe poder consultar su información y conocer los alumnos que participan en él. También debe ser posible incorporar un alumno a un curso y quitarlo cuando deje de participar.\n\nEl programa principal deberá crear varios alumnos y cursos. Al menos uno de los alumnos deberá participar en dos cursos diferentes. Luego se deberán mostrar los datos de los cursos y de los alumnos asociados.",
+  "categorias": [
+    "CLASE",
+    "ATRIBUTO",
+    "MÉTODO",
+    "CONSTRUCTOR",
+    "OBJETO",
+    "RELACIÓN"
+  ],
+  "tarjetas": [
+    {
+      "texto": "Curso",
+      "tipoCorrecto": "CLASE",
+      "explicacion": "Curso representa una entidad principal del problema y debe modelarse mediante una clase."
+    },
+    {
+      "texto": "Alumno",
+      "tipoCorrecto": "CLASE",
+      "explicacion": "Alumno representa una entidad con información propia y debe modelarse mediante una clase."
+    },
+    {
+      "texto": "nombre del curso",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "El nombre identifica al curso y forma parte de su información."
+    },
+    {
+      "texto": "duracionHoras",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "La duración es un dato propio del curso."
+    },
+    {
+      "texto": "precio",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "El precio es información propia del curso."
+    },
+    {
+      "texto": "nombre del alumno",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "El nombre forma parte de los datos propios del alumno."
+    },
+    {
+      "texto": "legajo",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "El número de legajo identifica al alumno dentro de la academia."
+    },
+    {
+      "texto": "alumnos",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "El curso necesita mantener información sobre los alumnos que participan en él."
+    },
+    {
+      "texto": "Curso(nombre, duracionHoras, precio)",
+      "tipoCorrecto": "CONSTRUCTOR",
+      "explicacion": "El constructor permite establecer los datos necesarios para crear un curso."
+    },
+    {
+      "texto": "Alumno(nombre, legajo)",
+      "tipoCorrecto": "CONSTRUCTOR",
+      "explicacion": "El constructor permite establecer los datos necesarios para crear un alumno."
+    },
+    {
+      "texto": "agregarAlumno(alumno)",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "Representa una acción que debe poder realizar un curso: incorporar un alumno."
+    },
+    {
+      "texto": "quitarAlumno(alumno)",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "Representa una acción que debe poder realizar un curso: quitar un alumno."
+    },
+    {
+      "texto": "getAlumnos()",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "Permite consultar los alumnos asociados al curso."
+    },
+    {
+      "texto": "mostrarInformacion()",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "Permite mostrar la información propia del curso."
+    },
+    {
+      "texto": "cursoUno",
+      "tipoCorrecto": "OBJETO",
+      "explicacion": "Es una instancia concreta de la clase Curso."
+    },
+    {
+      "texto": "cursoDos",
+      "tipoCorrecto": "OBJETO",
+      "explicacion": "Es otra instancia concreta de la clase Curso."
+    },
+    {
+      "texto": "alumnoUno",
+      "tipoCorrecto": "OBJETO",
+      "explicacion": "Es una instancia concreta de la clase Alumno."
+    },
+    {
+      "texto": "alumnoDos",
+      "tipoCorrecto": "OBJETO",
+      "explicacion": "Es otra instancia concreta de la clase Alumno."
+    },
+    {
+      "texto": "Curso → Alumno",
+      "tipoCorrecto": "RELACIÓN",
+      "explicacion": "Un curso se relaciona con los alumnos que participan en él. Un alumno puede participar en más de un curso."
+    },
+    {
+      "texto": "Alumno → Curso",
+      "tipoCorrecto": "RELACIÓN",
+      "explicacion": "Un alumno puede estar relacionado con distintos cursos de la academia."
+    },
+    {
+      "texto": "main",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "main permite crear y probar los objetos indicados en el enunciado."
+    }
+  ]
+}

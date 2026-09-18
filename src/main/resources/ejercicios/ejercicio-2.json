@@ -1,129 +1,139 @@
 {
   "id": 2,
-  "enunciado": "Ejercicio 2/10 · Taller mecánico\n\nUn taller mecánico quiere comenzar a organizar la información de los vehículos que ingresan para realizar trabajos de mantenimiento. Hasta ahora los datos se anotan en una planilla, pero se decidió crear un programa que permita representar cada vehículo y la información básica de su propietario. De cada vehículo interesa conocer la patente, la marca, el modelo y el año de fabricación. Además, de cada propietario se necesita conocer su nombre y su teléfono.\n\nCuando un vehículo ingresa al taller, debe quedar asociado a un propietario. Un mismo propietario puede llevar distintos vehículos al taller, por lo que la información del propietario no debería repetirse innecesariamente dentro de cada vehículo. El sistema debe permitir consultar los datos del vehículo y también obtener los datos del propietario asociado.\n\nEl taller necesita además registrar el kilometraje actual del vehículo y una descripción del trabajo solicitado. Estos datos corresponden al ingreso concreto del vehículo al taller y deben poder consultarse y modificarse cuando sea necesario.\n\nPara probar el sistema, el programa principal deberá crear al menos dos propietarios y tres vehículos, haciendo que uno de los propietarios tenga asociados dos vehículos diferentes. Luego deberá mostrar la información de los vehículos junto con los datos de sus respectivos propietarios y modificar el kilometraje y la descripción del trabajo de uno de los vehículos.\n\nEl diseño debe evitar repetir los datos del propietario en cada vehículo. La relación entre las clases debe permitir que un vehículo conozca a su propietario.",
+  "enunciado": "Ejercicio 2/10 · Taller mecánico\n\nUn taller recibe vehículos para realizar distintos trabajos. De cada vehículo se necesita conocer la patente, la marca, el modelo y el año de fabricación.\n\nCada vehículo está asociado a un propietario. Del propietario se registra el nombre y el teléfono. Una misma persona puede tener más de un vehículo, por lo que no se debe repetir la información del propietario dentro de cada vehículo.\n\nCuando un vehículo ingresa al taller también se registra el kilometraje actual y una descripción del trabajo solicitado. Estos datos pueden modificarse durante la permanencia del vehículo en el taller.\n\nEl sistema debe permitir consultar la información de un vehículo, modificar su kilometraje y actualizar la descripción del trabajo. También debe ser posible consultar quién es su propietario.\n\nPara probar el funcionamiento, el programa principal deberá crear al menos dos propietarios y tres vehículos. Uno de los propietarios deberá estar asociado a dos vehículos. Luego se deberá mostrar la información de los vehículos y realizar algunas modificaciones.",
   "categorias": [
     "CLASE",
     "ATRIBUTO",
     "MÉTODO",
     "CONSTRUCTOR",
     "OBJETO",
-    "RELACIÓN / ASOCIACIÓN"
+    "RELACIÓN"
   ],
   "tarjetas": [
     {
       "texto": "Vehiculo",
       "tipoCorrecto": "CLASE",
-      "explicacion": "Vehiculo representa la clase que modela cada vehículo que ingresa al taller."
+      "explicacion": "Vehiculo representa una entidad principal del problema y debe modelarse mediante una clase."
     },
     {
       "texto": "Propietario",
       "tipoCorrecto": "CLASE",
-      "explicacion": "Propietario representa una clase separada porque sus datos pertenecen al dueño y no al vehículo."
+      "explicacion": "Propietario representa una entidad con información propia y debe modelarse mediante una clase."
     },
     {
       "texto": "patente",
       "tipoCorrecto": "ATRIBUTO",
-      "explicacion": "La patente es un dato propio de cada vehículo, por eso es un atributo de Vehiculo."
+      "explicacion": "La patente es un dato propio de cada vehículo."
     },
     {
       "texto": "marca",
       "tipoCorrecto": "ATRIBUTO",
-      "explicacion": "La marca identifica una característica del vehículo y se representa como atributo."
+      "explicacion": "La marca es información propia del vehículo."
     },
     {
       "texto": "modelo",
       "tipoCorrecto": "ATRIBUTO",
-      "explicacion": "El modelo es información propia del vehículo, por lo tanto es un atributo."
+      "explicacion": "El modelo describe al vehículo y forma parte de su estado."
     },
     {
       "texto": "anioFabricacion",
       "tipoCorrecto": "ATRIBUTO",
-      "explicacion": "El año de fabricación es un dato del vehículo y se modela como atributo."
-    },
-    {
-      "texto": "nombre",
-      "tipoCorrecto": "ATRIBUTO",
-      "explicacion": "El nombre pertenece al propietario y debe ser un atributo de la clase Propietario."
-    },
-    {
-      "texto": "telefono",
-      "tipoCorrecto": "ATRIBUTO",
-      "explicacion": "El teléfono es un dato del propietario y se representa como atributo de Propietario."
+      "explicacion": "El año de fabricación es un dato propio del vehículo."
     },
     {
       "texto": "kilometrajeActual",
       "tipoCorrecto": "ATRIBUTO",
-      "explicacion": "El kilometraje actual es un dato que puede cambiar y pertenece al vehículo."
+      "explicacion": "El kilometraje actual pertenece al vehículo y puede modificarse."
     },
     {
       "texto": "descripcionTrabajo",
       "tipoCorrecto": "ATRIBUTO",
-      "explicacion": "La descripción del trabajo solicitado es información del ingreso del vehículo al taller."
+      "explicacion": "La descripción del trabajo solicitado forma parte de la información del vehículo mientras permanece en el taller."
+    },
+    {
+      "texto": "nombre",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "El nombre es información propia del propietario."
+    },
+    {
+      "texto": "telefono",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "El teléfono es un dato propio del propietario."
     },
     {
       "texto": "propietario",
-      "tipoCorrecto": "RELACIÓN / ASOCIACIÓN",
-      "explicacion": "Vehiculo tiene una referencia a un Propietario como atributo. El mismo propietario puede estar asociado a varios vehículos y puede existir independientemente del vehículo."
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "Vehiculo debe mantener una referencia al propietario asociado."
     },
     {
-      "texto": "Vehiculo(patente, marca, modelo, anioFabricacion, propietario)",
+      "texto": "Vehiculo(patente, marca, modelo, anioFabricacion, kilometrajeActual, descripcionTrabajo, propietario)",
       "tipoCorrecto": "CONSTRUCTOR",
-      "explicacion": "El constructor recibe los datos iniciales del vehículo y la referencia al propietario asociado."
+      "explicacion": "El constructor permite establecer los datos necesarios para crear un vehículo."
     },
     {
       "texto": "Propietario(nombre, telefono)",
       "tipoCorrecto": "CONSTRUCTOR",
-      "explicacion": "El constructor de Propietario establece el nombre y el teléfono al crear el objeto."
+      "explicacion": "El constructor permite establecer los datos necesarios para crear un propietario."
     },
     {
-      "texto": "getPropietario()",
+      "texto": "getPatente()",
       "tipoCorrecto": "MÉTODO",
-      "explicacion": "Este método permite consultar el propietario asociado al vehículo."
+      "explicacion": "Permite consultar la patente del vehículo."
     },
     {
       "texto": "setKilometrajeActual(kilometraje)",
       "tipoCorrecto": "MÉTODO",
-      "explicacion": "Este método permite modificar el kilometraje actual del vehículo."
+      "explicacion": "Permite modificar el kilometraje actual del vehículo."
     },
     {
       "texto": "setDescripcionTrabajo(descripcion)",
       "tipoCorrecto": "MÉTODO",
-      "explicacion": "Este método permite actualizar la descripción del trabajo solicitado."
+      "explicacion": "Permite modificar la descripción del trabajo solicitado."
+    },
+    {
+      "texto": "getPropietario()",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "Permite consultar el propietario asociado al vehículo."
     },
     {
       "texto": "mostrarInformacion()",
       "tipoCorrecto": "MÉTODO",
-      "explicacion": "El método muestra los datos del vehículo junto con los datos de su propietario."
+      "explicacion": "Permite mostrar la información correspondiente al vehículo."
     },
     {
       "texto": "propietarioUno",
       "tipoCorrecto": "OBJETO",
-      "explicacion": "propietarioUno es una instancia concreta de la clase Propietario."
+      "explicacion": "Es una instancia concreta de la clase Propietario."
     },
     {
       "texto": "propietarioDos",
       "tipoCorrecto": "OBJETO",
-      "explicacion": "propietarioDos es otra instancia concreta de la clase Propietario."
+      "explicacion": "Es otra instancia concreta de la clase Propietario."
     },
     {
       "texto": "vehiculoUno",
       "tipoCorrecto": "OBJETO",
-      "explicacion": "vehiculoUno es una instancia concreta de la clase Vehiculo."
+      "explicacion": "Es una instancia concreta de la clase Vehiculo."
     },
     {
       "texto": "vehiculoDos",
       "tipoCorrecto": "OBJETO",
-      "explicacion": "vehiculoDos es una instancia concreta de la clase Vehiculo."
+      "explicacion": "Es otra instancia concreta de la clase Vehiculo."
     },
     {
       "texto": "vehiculoTres",
       "tipoCorrecto": "OBJETO",
-      "explicacion": "vehiculoTres es una instancia concreta de la clase Vehiculo."
+      "explicacion": "Es una tercera instancia concreta de la clase Vehiculo."
+    },
+    {
+      "texto": "Vehiculo → Propietario",
+      "tipoCorrecto": "RELACIÓN",
+      "explicacion": "El enunciado establece que cada vehículo está asociado a un propietario. El vehículo mantiene una referencia al objeto Propietario."
     },
     {
       "texto": "main",
       "tipoCorrecto": "MÉTODO",
-      "explicacion": "main crea los propietarios y vehículos, muestra la información y prueba las modificaciones."
+      "explicacion": "main permite crear y probar los objetos indicados en el enunciado."
     }
   ]
 }

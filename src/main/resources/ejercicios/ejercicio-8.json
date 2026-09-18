@@ -1,0 +1,69 @@
+{
+  "id": 8,
+  "enunciado": "Una empresa necesita registrar personas. Cada persona tiene nombre, apellido y DNI. El sistema debe permitir comparar personas para determinar si representan a la misma persona. Dos personas se consideran iguales cuando tienen el mismo DNI. También se debe poder mostrar la información de una persona de manera clara.",
+  "categorias": [
+    "CLASE",
+    "ATRIBUTO",
+    "MÉTODO",
+    "CONSTRUCTOR",
+    "OBJETO",
+    "RELACIÓN"
+  ],
+  "tarjetas": [
+    {
+      "texto": "Persona",
+      "tipoCorrecto": "CLASE",
+      "explicacion": "Representa una persona dentro del sistema."
+    },
+    {
+      "texto": "nombre",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "Representa el nombre de la persona."
+    },
+    {
+      "texto": "apellido",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "Representa el apellido de la persona."
+    },
+    {
+      "texto": "dni",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "Identifica a la persona y permite determinar cuándo dos personas son iguales."
+    },
+    {
+      "texto": "equals(Object obj)",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "Permite definir cuándo dos objetos Persona se consideran iguales."
+    },
+    {
+      "texto": "hashCode()",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "Forma parte del mecanismo de igualdad de objetos y debe ser coherente con equals."
+    },
+    {
+      "texto": "toString()",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "Permite obtener una representación textual de una persona."
+    },
+    {
+      "texto": "constructor de Persona",
+      "tipoCorrecto": "CONSTRUCTOR",
+      "explicacion": "Permite crear una persona inicializando sus datos."
+    },
+    {
+      "texto": "personaUno",
+      "tipoCorrecto": "OBJETO",
+      "explicacion": "Es una instancia concreta de la clase Persona."
+    },
+    {
+      "texto": "personaDos",
+      "tipoCorrecto": "OBJETO",
+      "explicacion": "Es otra instancia concreta de la clase Persona."
+    },
+    {
+      "texto": "Persona hereda de Object",
+      "tipoCorrecto": "RELACIÓN",
+      "explicacion": "Toda clase Java hereda de Object, donde se encuentran métodos como equals, hashCode y toString."
+    }
+  ]
+}

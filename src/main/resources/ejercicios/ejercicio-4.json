@@ -1,0 +1,106 @@
+{
+  "id": 4,
+  "enunciado": "Ejercicio 4/10 · Empresa de transporte\n\nUna empresa de transporte necesita organizar la información de los vehículos que utiliza para prestar sus servicios.\n\nTodos los vehículos tienen una patente, una marca y un año de fabricación. Sin embargo, la empresa utiliza distintos tipos de vehículos y cada uno posee características particulares.\n\nLos camiones tienen una capacidad de carga expresada en toneladas. Los colectivos tienen una cantidad máxima de pasajeros.\n\nEl sistema debe permitir consultar la información general de cualquier vehículo y también mostrar las características específicas correspondientes a cada tipo de vehículo.\n\nNo se desea repetir en cada tipo de vehículo los datos que son comunes a todos ellos.\n\nEl programa principal deberá crear al menos un camión y un colectivo y mostrar la información de ambos.",
+  "categorias": [
+    "CLASE",
+    "CLASE PADRE",
+    "CLASE HIJA",
+    "ATRIBUTO",
+    "MÉTODO",
+    "CONSTRUCTOR",
+    "OBJETO",
+    "RELACIÓN"
+  ],
+  "tarjetas": [
+    {
+      "texto": "Vehiculo",
+      "tipoCorrecto": "CLASE PADRE",
+      "explicacion": "Vehiculo contiene las características comunes a los distintos tipos de vehículos."
+    },
+    {
+      "texto": "Camion",
+      "tipoCorrecto": "CLASE HIJA",
+      "explicacion": "Camion es un tipo específico de Vehiculo y utiliza la herencia para reutilizar las características comunes."
+    },
+    {
+      "texto": "Colectivo",
+      "tipoCorrecto": "CLASE HIJA",
+      "explicacion": "Colectivo es un tipo específico de Vehiculo y utiliza la herencia para reutilizar las características comunes."
+    },
+    {
+      "texto": "patente",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "La patente es una característica común de todos los vehículos."
+    },
+    {
+      "texto": "marca",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "La marca es una característica común de todos los vehículos."
+    },
+    {
+      "texto": "anioFabricacion",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "El año de fabricación es una característica común de todos los vehículos."
+    },
+    {
+      "texto": "capacidadCarga",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "La capacidad de carga es una característica propia del camión."
+    },
+    {
+      "texto": "cantidadPasajeros",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "La cantidad máxima de pasajeros es una característica propia del colectivo."
+    },
+    {
+      "texto": "mostrarInformacion()",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "El enunciado indica que los vehículos deben poder mostrar su información."
+    },
+    {
+      "texto": "mostrarCaracteristicas()",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "Permite mostrar las características específicas de cada tipo de vehículo."
+    },
+    {
+      "texto": "Vehiculo(patente, marca, anioFabricacion)",
+      "tipoCorrecto": "CONSTRUCTOR",
+      "explicacion": "El constructor de Vehiculo establece los datos comunes a todos los vehículos."
+    },
+    {
+      "texto": "Camion(patente, marca, anioFabricacion, capacidadCarga)",
+      "tipoCorrecto": "CONSTRUCTOR",
+      "explicacion": "El constructor de Camion inicializa los datos heredados y la característica propia del camión."
+    },
+    {
+      "texto": "Colectivo(patente, marca, anioFabricacion, cantidadPasajeros)",
+      "tipoCorrecto": "CONSTRUCTOR",
+      "explicacion": "El constructor de Colectivo inicializa los datos heredados y la característica propia del colectivo."
+    },
+    {
+      "texto": "camionUno",
+      "tipoCorrecto": "OBJETO",
+      "explicacion": "Es una instancia concreta de la clase Camion."
+    },
+    {
+      "texto": "colectivoUno",
+      "tipoCorrecto": "OBJETO",
+      "explicacion": "Es una instancia concreta de la clase Colectivo."
+    },
+    {
+      "texto": "Camion extends Vehiculo",
+      "tipoCorrecto": "RELACIÓN",
+      "explicacion": "Camion es un Vehiculo, por lo que existe una relación de herencia."
+    },
+    {
+      "texto": "Colectivo extends Vehiculo",
+      "tipoCorrecto": "RELACIÓN",
+      "explicacion": "Colectivo es un Vehiculo, por lo que existe una relación de herencia."
+    },
+    {
+      "texto": "main",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "main permite crear y probar los objetos indicados en el enunciado."
+    }
+  ]
+}

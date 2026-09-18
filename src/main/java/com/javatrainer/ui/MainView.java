@@ -31,13 +31,23 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/** Pantalla de práctica con navegación, abandono y tiempo límite por ejercicio. */
+/**
+ * Pantalla de práctica con navegación, abandono y tiempo límite por ejercicio.
+ */
 public class MainView extends BorderPane {
     private static final int COLUMNA_ANCHO = 240;
-    private static final int TIEMPO_POR_EJERCICIO_SEGUNDOS = 15 * 60;
+    private static final int TIEMPO_POR_EJERCICIO_SEGUNDOS = 3 * 60;
     private static final List<String> RUTAS_EJERCICIOS = List.of(
             "/ejercicios/ejercicio-1.json",
-            "/ejercicios/ejercicio-2.json"
+            "/ejercicios/ejercicio-2.json",
+            "/ejercicios/ejercicio-3.json",
+            "/ejercicios/ejercicio-4.json",
+            "/ejercicios/ejercicio-5.json",
+            "/ejercicios/ejercicio-6.json",
+            "/ejercicios/ejercicio-7.json",
+            "/ejercicios/ejercicio-8.json",
+            "/ejercicios/ejercicio-9.json",
+            "/ejercicios/ejercicio-10.json"
     );
 
     private final Map<String, String> respuestas = new HashMap<>();

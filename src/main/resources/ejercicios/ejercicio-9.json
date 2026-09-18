@@ -1,0 +1,94 @@
+{
+  "id": 9,
+  "enunciado": "Un comercio necesita administrar sus productos. Cada producto tiene un código, un nombre y un precio. Se debe crear una clase encargada de administrar los productos y utilizar una lista de productos. El sistema debe permitir agregar productos, buscar un producto por su código, filtrar productos según su precio y calcular el total de los precios. Además, los productos deben poder compararse por precio.",
+  "categorias": [
+    "CLASE",
+    "ATRIBUTO",
+    "MÉTODO",
+    "CONSTRUCTOR",
+    "OBJETO",
+    "RELACIÓN"
+  ],
+  "tarjetas": [
+    {
+      "texto": "Producto",
+      "tipoCorrecto": "CLASE",
+      "explicacion": "Representa un producto del comercio."
+    },
+    {
+      "texto": "GestorProductos",
+      "tipoCorrecto": "CLASE",
+      "explicacion": "Se encarga de administrar los productos del comercio."
+    },
+    {
+      "texto": "codigo",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "Identifica un producto."
+    },
+    {
+      "texto": "nombre",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "Representa el nombre del producto."
+    },
+    {
+      "texto": "precio",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "Representa el precio del producto."
+    },
+    {
+      "texto": "productos",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "Representa la lista de productos administrada por GestorProductos."
+    },
+    {
+      "texto": "agregarProducto()",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "Permite agregar un producto a la lista."
+    },
+    {
+      "texto": "buscarPorCodigo()",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "Permite buscar un producto utilizando su código."
+    },
+    {
+      "texto": "filtrarPorPrecio()",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "Permite obtener productos que cumplen una condición relacionada con su precio."
+    },
+    {
+      "texto": "calcularTotal()",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "Permite calcular el total de los precios de los productos."
+    },
+    {
+      "texto": "compareTo()",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "Permite establecer el criterio de comparación de productos por precio."
+    },
+    {
+      "texto": "constructor de Producto",
+      "tipoCorrecto": "CONSTRUCTOR",
+      "explicacion": "Permite crear un producto inicializando sus datos."
+    },
+    {
+      "texto": "constructor de GestorProductos",
+      "tipoCorrecto": "CONSTRUCTOR",
+      "explicacion": "Permite crear el gestor que administra los productos."
+    },
+    {
+      "texto": "productoUno",
+      "tipoCorrecto": "OBJETO",
+      "explicacion": "Es una instancia concreta de la clase Producto."
+    },
+    {
+      "texto": "productoDos",
+      "tipoCorrecto": "OBJETO",
+      "explicacion": "Es otra instancia concreta de la clase Producto."
+    },
+    {
+      "texto": "GestorProductos tiene una lista de Producto",
+      "tipoCorrecto": "RELACIÓN",
+      "explicacion": "El gestor mantiene una colección de productos para poder administrarlos."
+    }
+  ]
+}
