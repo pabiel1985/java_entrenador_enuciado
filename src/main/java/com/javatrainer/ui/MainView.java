@@ -18,7 +18,7 @@ import javafx.scene.input.TransferMode;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.Priority;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
@@ -27,6 +27,7 @@ import java.util.Map;
 
 /** Pantalla de práctica del primer ejercicio. */
 public class MainView extends BorderPane {
+    private static final int COLUMNA_ANCHO = 240;
     private static final String[] CATEGORIAS = {
             "CLASE", "CLASE PADRE", "CLASE HIJA", "INTERFACE",
             "ATRIBUTO", "CONSTANTE", "VARIABLE", "MÉTODO",
@@ -69,12 +70,14 @@ public class MainView extends BorderPane {
 
         ScrollPane scroll = new ScrollPane(contenido);
         scroll.setFitToWidth(true);
+        scroll.setFitToHeight(true);
         setCenter(scroll);
     }
 
     private TitledPane crearEnunciado() {
         Label texto = new Label(ejercicio.getEnunciado());
         texto.setWrapText(true);
+        texto.setMaxWidth(Double.MAX_VALUE);
         texto.getStyleClass().add("enunciado");
         return new TitledPane("ENUNCIADO", texto);
     }
@@ -82,8 +85,13 @@ public class MainView extends BorderPane {
     private VBox crearTarjetasDisponibles() {
         VBox caja = new VBox(8);
         Label titulo = new Label("TARJETAS DISPONIBLES (arrastra cada tarjeta a una categoría)");
+        titulo.setWrapText(true);
+
         FlowPane tarjetas = new FlowPane(10, 10);
         tarjetas.setId("tarjetasDisponibles");
+        tarjetas.setPrefWrapLength(1000);
+        tarjetas.setHgap(10);
+        tarjetas.setVgap(10);
         tarjetas.setOnDragOver(event -> {
             if (event.getGestureSource() instanceof Label) {
                 event.acceptTransferModes(TransferMode.MOVE);
@@ -113,6 +121,8 @@ public class MainView extends BorderPane {
         Label etiqueta = new Label(tarjeta.getTexto());
         etiqueta.getStyleClass().add("tarjeta");
         etiqueta.setWrapText(true);
+        etiqueta.setMaxWidth(COLUMNA_ANCHO - 20);
+        etiqueta.setMinHeight(Region.USE_PREF_SIZE);
         etiqueta.setUserData(tarjeta);
         etiqueta.setOnDragDetected(event -> {
             Dragboard dragboard = etiqueta.startDragAndDrop(TransferMode.MOVE);
@@ -126,13 +136,17 @@ public class MainView extends BorderPane {
 
     private FlowPane crearZonas() {
         FlowPane contenedor = new FlowPane(12, 12);
-        contenedor.setPrefWrapLength(1050);
+        contenedor.setPrefWrapLength(1000);
 
         for (String categoria : CATEGORIAS) {
             FlowPane zona = new FlowPane(8, 8);
             zona.getStyleClass().add("zona");
-            zona.setPrefWrapLength(230);
-            zona.setPrefHeight(100);
+            zona.setPrefWrapLength(COLUMNA_ANCHO);
+            zona.setMinWidth(COLUMNA_ANCHO);
+            zona.setPrefWidth(COLUMNA_ANCHO);
+            zona.setMaxWidth(COLUMNA_ANCHO);
+            zona.setMinHeight(110);
+            zona.setPrefHeight(110);
             zona.setOnDragOver(event -> {
                 if (event.getGestureSource() instanceof Label) {
                     event.acceptTransferModes(TransferMode.MOVE);
@@ -151,8 +165,9 @@ public class MainView extends BorderPane {
             nombre.getStyleClass().add("categoria");
             VBox columna = new VBox(6, nombre, zona);
             columna.getStyleClass().add("columna");
-            columna.setPrefWidth(250);
-            columna.setMinHeight(140);
+            columna.setPrefWidth(COLUMNA_ANCHO);
+            columna.setMinWidth(COLUMNA_ANCHO);
+            columna.setMaxWidth(COLUMNA_ANCHO);
             contenedor.getChildren().add(columna);
         }
         return contenedor;
@@ -162,6 +177,7 @@ public class MainView extends BorderPane {
         if (tarjeta.getParent() instanceof Pane anterior) {
             anterior.getChildren().remove(tarjeta);
         }
+        tarjeta.setMaxWidth(COLUMNA_ANCHO - 24);
         destino.getChildren().add(tarjeta);
         respuestas.put(((Tarjeta) tarjeta.getUserData()).getTexto(), categoria);
     }
