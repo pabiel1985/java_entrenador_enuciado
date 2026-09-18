@@ -1,0 +1,129 @@
+{
+  "id": 2,
+  "enunciado": "Ejercicio 2/10 · Taller mecánico\n\nUn taller mecánico quiere comenzar a organizar la información de los vehículos que ingresan para realizar trabajos de mantenimiento. Hasta ahora los datos se anotan en una planilla, pero se decidió crear un programa que permita representar cada vehículo y la información básica de su propietario. De cada vehículo interesa conocer la patente, la marca, el modelo y el año de fabricación. Además, de cada propietario se necesita conocer su nombre y su teléfono.\n\nCuando un vehículo ingresa al taller, debe quedar asociado a un propietario. Un mismo propietario puede llevar distintos vehículos al taller, por lo que la información del propietario no debería repetirse innecesariamente dentro de cada vehículo. El sistema debe permitir consultar los datos del vehículo y también obtener los datos del propietario asociado.\n\nEl taller necesita además registrar el kilometraje actual del vehículo y una descripción del trabajo solicitado. Estos datos corresponden al ingreso concreto del vehículo al taller y deben poder consultarse y modificarse cuando sea necesario.\n\nPara probar el sistema, el programa principal deberá crear al menos dos propietarios y tres vehículos, haciendo que uno de los propietarios tenga asociados dos vehículos diferentes. Luego deberá mostrar la información de los vehículos junto con los datos de sus respectivos propietarios y modificar el kilometraje y la descripción del trabajo de uno de los vehículos.\n\nEl diseño debe evitar repetir los datos del propietario en cada vehículo. La relación entre las clases debe permitir que un vehículo conozca a su propietario.",
+  "categorias": [
+    "CLASE",
+    "ATRIBUTO",
+    "MÉTODO",
+    "CONSTRUCTOR",
+    "OBJETO",
+    "COMPOSICIÓN"
+  ],
+  "tarjetas": [
+    {
+      "texto": "Vehiculo",
+      "tipoCorrecto": "CLASE",
+      "explicacion": "Vehiculo representa la clase que modela cada vehículo que ingresa al taller."
+    },
+    {
+      "texto": "Propietario",
+      "tipoCorrecto": "CLASE",
+      "explicacion": "Propietario representa una clase separada porque sus datos pertenecen al dueño y no al vehículo."
+    },
+    {
+      "texto": "patente",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "La patente es un dato propio de cada vehículo, por eso es un atributo de Vehiculo."
+    },
+    {
+      "texto": "marca",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "La marca identifica una característica del vehículo y se representa como atributo."
+    },
+    {
+      "texto": "modelo",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "El modelo es información propia del vehículo, por lo tanto es un atributo."
+    },
+    {
+      "texto": "anioFabricacion",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "El año de fabricación es un dato del vehículo y se modela como atributo."
+    },
+    {
+      "texto": "nombre",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "El nombre pertenece al propietario y debe ser un atributo de la clase Propietario."
+    },
+    {
+      "texto": "telefono",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "El teléfono es un dato del propietario y se representa como atributo de Propietario."
+    },
+    {
+      "texto": "kilometrajeActual",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "El kilometraje actual es un dato que puede cambiar y pertenece al vehículo."
+    },
+    {
+      "texto": "descripcionTrabajo",
+      "tipoCorrecto": "ATRIBUTO",
+      "explicacion": "La descripción del trabajo solicitado es información del ingreso del vehículo al taller."
+    },
+    {
+      "texto": "propietario",
+      "tipoCorrecto": "COMPOSICIÓN",
+      "explicacion": "Vehiculo mantiene una referencia a un objeto Propietario. Así se evita repetir nombre y teléfono dentro de cada vehículo."
+    },
+    {
+      "texto": "Vehiculo(patente, marca, modelo, anioFabricacion, propietario)",
+      "tipoCorrecto": "CONSTRUCTOR",
+      "explicacion": "El constructor recibe los datos iniciales del vehículo y el propietario asociado."
+    },
+    {
+      "texto": "Propietario(nombre, telefono)",
+      "tipoCorrecto": "CONSTRUCTOR",
+      "explicacion": "El constructor de Propietario establece el nombre y el teléfono al crear el objeto."
+    },
+    {
+      "texto": "getPropietario()",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "Este método permite consultar el propietario asociado al vehículo."
+    },
+    {
+      "texto": "setKilometrajeActual(kilometraje)",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "Este método permite modificar el kilometraje actual del vehículo."
+    },
+    {
+      "texto": "setDescripcionTrabajo(descripcion)",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "Este método permite actualizar la descripción del trabajo solicitado."
+    },
+    {
+      "texto": "mostrarInformacion()",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "El método muestra los datos del vehículo junto con los datos de su propietario."
+    },
+    {
+      "texto": "propietarioUno",
+      "tipoCorrecto": "OBJETO",
+      "explicacion": "propietarioUno es una instancia concreta de la clase Propietario."
+    },
+    {
+      "texto": "propietarioDos",
+      "tipoCorrecto": "OBJETO",
+      "explicacion": "propietarioDos es otra instancia concreta de la clase Propietario."
+    },
+    {
+      "texto": "vehiculoUno",
+      "tipoCorrecto": "OBJETO",
+      "explicacion": "vehiculoUno es una instancia concreta de la clase Vehiculo."
+    },
+    {
+      "texto": "vehiculoDos",
+      "tipoCorrecto": "OBJETO",
+      "explicacion": "vehiculoDos es una instancia concreta de la clase Vehiculo."
+    },
+    {
+      "texto": "vehiculoTres",
+      "tipoCorrecto": "OBJETO",
+      "explicacion": "vehiculoTres es una instancia concreta de la clase Vehiculo."
+    },
+    {
+      "texto": "main",
+      "tipoCorrecto": "MÉTODO",
+      "explicacion": "main crea los propietarios y vehículos, muestra la información y prueba las modificaciones."
+    }
+  ]
+}
